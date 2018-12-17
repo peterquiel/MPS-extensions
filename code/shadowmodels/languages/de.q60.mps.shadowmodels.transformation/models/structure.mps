@@ -91,7 +91,7 @@
     </node>
     <node concept="1TJgyi" id="5o5qH$CA1km" role="1TKVEl">
       <property role="IQ2nx" value="6198477943066858774" />
-      <property role="TrG5h" value="isAbstract" />
+      <property role="TrG5h" value="abstract" />
       <ref role="AX2Wp" to="tpck:fKAQMTB" resolve="boolean" />
     </node>
     <node concept="1TJgyj" id="5o5qH$CzHq1" role="1TKVEi">

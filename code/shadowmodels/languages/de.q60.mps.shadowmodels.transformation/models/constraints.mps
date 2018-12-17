@@ -1094,7 +1094,7 @@
                             </node>
                           </node>
                           <node concept="3TrcHB" id="2Dmy1k6Xt3b" role="2OqNvi">
-                            <ref role="3TsBF5" to="oyp0:5o5qH$CA1km" resolve="isAbstract" />
+                            <ref role="3TsBF5" to="oyp0:5o5qH$CA1km" resolve="abstract" />
                           </node>
                         </node>
                       </node>
@@ -1155,7 +1155,7 @@
                             </node>
                           </node>
                           <node concept="3TrcHB" id="2Dmy1k6Xteg" role="2OqNvi">
-                            <ref role="3TsBF5" to="oyp0:5o5qH$CA1km" resolve="isAbstract" />
+                            <ref role="3TsBF5" to="oyp0:5o5qH$CA1km" resolve="abstract" />
                           </node>
                         </node>
                       </node>

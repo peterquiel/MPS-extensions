@@ -5,6 +5,7 @@
     <use id="18bc6592-03a6-4e29-a83a-7ff23bde13ba" name="jetbrains.mps.lang.editor" version="12" />
     <use id="1dfdade0-0417-484f-b787-4c41692c0052" name="de.q60.mps.shadowmodels.util" version="0" />
     <use id="df345b11-b8c7-4213-ac66-48d2a9b75d88" name="jetbrains.mps.baseLanguageInternal" version="0" />
+    <use id="9d69e719-78c8-4286-90db-fb19c107d049" name="com.mbeddr.mpsutil.grammarcells" version="0" />
     <devkit ref="2677cb18-f558-4e33-bc38-a5139cee06dc(jetbrains.mps.devkit.language-design)" />
   </languages>
   <imports>
@@ -221,6 +222,9 @@
         <reference id="1170346070688" name="classifier" index="1Y3XeK" />
       </concept>
     </language>
+    <language id="9d69e719-78c8-4286-90db-fb19c107d049" name="com.mbeddr.mpsutil.grammarcells">
+      <concept id="7363578995839203705" name="com.mbeddr.mpsutil.grammarcells.structure.FlagCell" flags="sg" stub="1984422498400729024" index="1kHk_G" />
+    </language>
     <language id="1dfdade0-0417-484f-b787-4c41692c0052" name="de.q60.mps.shadowmodels.util">
       <concept id="1161622981231" name="de.q60.mps.shadowmodels.util.structure.ConceptFunctionParameter_cell" flags="nn" index="1Q80Hy" />
       <concept id="1176749715029" name="de.q60.mps.shadowmodels.util.structure.QueryFunction_Cell" flags="in" index="3VJUX4" />
@@ -277,20 +281,8 @@
             <node concept="3F0ifn" id="5o5qH$CDyN_" role="3EZMnx">
               <node concept="VPM3Z" id="5o5qH$CDTai" role="3F10Kt" />
             </node>
-            <node concept="3F0ifn" id="5o5qH$CA1U_" role="3EZMnx">
-              <property role="3F0ifm" value="abstract" />
-              <node concept="pkWqt" id="5o5qH$CA28w" role="pqm2j">
-                <node concept="3clFbS" id="5o5qH$CA28x" role="2VODD2">
-                  <node concept="3clFbF" id="5o5qH$CA2fQ" role="3cqZAp">
-                    <node concept="2OqwBi" id="5o5qH$CA2vX" role="3clFbG">
-                      <node concept="pncrf" id="5o5qH$CA2fP" role="2Oq$k0" />
-                      <node concept="3TrcHB" id="5o5qH$CA3wf" role="2OqNvi">
-                        <ref role="3TsBF5" to="oyp0:5o5qH$CA1km" resolve="isAbstract" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
+            <node concept="1kHk_G" id="6iawi6SbzSW" role="3EZMnx">
+              <ref role="1NtTu8" to="oyp0:5o5qH$CA1km" resolve="abstract" />
             </node>
             <node concept="PMmxH" id="4EhVFrYZIHO" role="3EZMnx">
               <ref role="PMmxG" to="tpco:2wZex4PafBj" resolve="alias" />
@@ -693,7 +685,7 @@
         </node>
         <node concept="3F0A7n" id="5o5qH$CA3RK" role="3EZMnx">
           <property role="1O74Pk" value="true" />
-          <ref role="1NtTu8" to="oyp0:5o5qH$CA1km" resolve="isAbstract" />
+          <ref role="1NtTu8" to="oyp0:5o5qH$CA1km" resolve="abstract" />
         </node>
       </node>
       <node concept="3EZMnI" id="Vl1zEEzayD" role="3EZMnx">
