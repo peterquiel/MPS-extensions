@@ -38,10 +38,14 @@
       <concept id="7244744932403450172" name="de.q60.mps.shadowmodels.examples.expressions.structure.NumLit" flags="ng" index="3sGD0t">
         <property id="7244744932403450173" name="value" index="3sGD0s" />
       </concept>
-      <concept id="7244744932403322722" name="de.q60.mps.shadowmodels.examples.expressions.structure.Enum" flags="ng" index="3sJ9T3">
-        <child id="7244744932403322728" name="literals" index="3sJ9T9" />
+      <concept id="7244744932403711344" name="de.q60.mps.shadowmodels.examples.expressions.structure.Execute" flags="ng" index="3sHCLh">
+        <child id="7244744932403711349" name="value" index="3sHCLk" />
       </concept>
-      <concept id="7244744932403322725" name="de.q60.mps.shadowmodels.examples.expressions.structure.EnumLit" flags="ng" index="3sJ9T4" />
+      <concept id="7244744932403797420" name="de.q60.mps.shadowmodels.examples.expressions.structure.BinaryExpr" flags="ng" index="3sHXMd">
+        <child id="7244744932403797421" name="left" index="3sHXMc" />
+        <child id="7244744932403797423" name="right" index="3sHXMe" />
+      </concept>
+      <concept id="7244744932403797606" name="de.q60.mps.shadowmodels.examples.expressions.structure.PlusExpr" flags="ng" index="3sHXX7" />
       <concept id="7244744932403249950" name="de.q60.mps.shadowmodels.examples.expressions.structure.ConstantRef" flags="ng" index="3sJS8Z">
         <reference id="7244744932403249951" name="constant" index="3sJS8Y" />
       </concept>
@@ -53,22 +57,10 @@
     </language>
   </registry>
   <node concept="3sDS1J" id="6iawi6SbrdB">
-    <node concept="3sJ9T3" id="6iawi6SdI0O" role="3sDS2Z">
-      <property role="TrG5h" value="Color" />
-      <node concept="3sJ9T4" id="6iawi6SdI1c" role="3sJ9T9">
-        <property role="TrG5h" value="red" />
-      </node>
-      <node concept="3sJ9T4" id="6iawi6SdI1e" role="3sJ9T9">
-        <property role="TrG5h" value="green" />
-      </node>
-      <node concept="3sJ9T4" id="6iawi6SdI1h" role="3sJ9T9">
-        <property role="TrG5h" value="blue" />
-      </node>
-    </node>
     <node concept="3sDS1V" id="6iawi6Sdgc0" role="3sDS2Z">
-      <property role="TrG5h" value="zero" />
+      <property role="TrG5h" value="c" />
       <node concept="3sGD0t" id="6iawi6SelLa" role="3sDS1W">
-        <property role="3sGD0s" value="0" />
+        <property role="3sGD0s" value="41" />
       </node>
     </node>
     <node concept="38WgWO" id="6iawi6SbrdC" role="3sDS2Z">
@@ -112,12 +104,32 @@
           <ref role="38XQJG" node="6iawi6SbrdY" resolve="a" />
         </node>
         <node concept="3sJS8Z" id="6iawi6SdxXg" role="3sFBEX">
-          <ref role="3sJS8Y" node="6iawi6Sdgc0" resolve="zero" />
+          <ref role="3sJS8Y" node="6iawi6Sdgc0" resolve="c" />
         </node>
       </node>
       <node concept="38WgZL" id="6iawi6SbrdY" role="38WgZu">
         <property role="TrG5h" value="a" />
         <node concept="3sCBM1" id="6iawi6SbrdX" role="3sCBM3" />
+      </node>
+    </node>
+    <node concept="3sHCLh" id="6iawi6SfAbG" role="3sDS2Z">
+      <node concept="3sHXX7" id="6iawi6SfW6T" role="3sHCLk">
+        <node concept="3sGD0t" id="6iawi6SfW76" role="3sHXMc">
+          <property role="3sGD0s" value="1" />
+        </node>
+        <node concept="3sGD0t" id="6iawi6SfW7c" role="3sHXMe">
+          <property role="3sGD0s" value="2" />
+        </node>
+      </node>
+    </node>
+    <node concept="3sHCLh" id="6iawi6SgtpU" role="3sDS2Z">
+      <node concept="3sHXX7" id="6iawi6SgtpV" role="3sHCLk">
+        <node concept="3sGD0t" id="6iawi6SgtpW" role="3sHXMc">
+          <property role="3sGD0s" value="1" />
+        </node>
+        <node concept="3sJS8Z" id="3AhHUC_cq0T" role="3sHXMe">
+          <ref role="3sJS8Y" node="6iawi6Sdgc0" resolve="c" />
+        </node>
       </node>
     </node>
   </node>
