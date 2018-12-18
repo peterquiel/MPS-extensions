@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Extensions and utilities for MPS">  
+    <link rel="canonical" href="https://jetbrains.github.io/MPS-extensions/extensions/node-versioning/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+
+    
+    <title>Node Versioning - MPS Extension</title>
+    
+
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/3.003/css/hack.min.css">
+    <link href='//fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="../..">MPS Extension</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../building/">Building</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../contributing/">Contributing</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../Migrating/">Migrating</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extensions <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../diagrams/">Diagrams</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Node Versioning</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../diagrams/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="prev" >
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/jetbrains/mps-extensions/edit/master/docs/extensions/node-versioning.md"><i class="fab fa-github"></i> Edit on GitHub</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#node-versioning">Node Versioning</a></li>
+            <li class="second-level"><a href="#what-is-a-node">What is a Node</a></li>
+                
+            <li class="second-level"><a href="#meta-model">Meta Model</a></li>
+                
+            <li class="second-level"><a href="#change-detection">Change Detection</a></li>
+                
+            <li class="second-level"><a href="#potential-features">Potential Features</a></li>
+                
+            <li class="second-level"><a href="#usage">Usage</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="node-versioning">Node Versioning</h1>
+<p><strong>Language Namespace :</strong> <code>de.itemis.mps.nodeversioning</code></p>
+<p>The node versioning extension gives support for storing different <em>states/versions</em> of a node inside of the model. It is <strong>not</strong> a replacement for version control systems like <code>git</code>.</p>
+<p>An example use case might be a model is used to describe an API and the users wants to detect changes between different releases of the API. This API has a version number that follows semVer associated with it. Now when users wants check what changes happened since the last release the information stored by this extension can be used to diff the current state against the last released one.</p>
+<p>The scope of this extension is to provide a way to store the versions of a node and do change detection. It does intentionally not provide ways how to semantically reason about a change as this is highly domain specific. It might be used in conjunction with the <code>nodecomparator</code> to do structural diffs between versions.</p>
+<p>State: <em>Incubating</em> </p>
+<p>This extension is currently incubating and might under go substantial changes in the future. Currently it only supports storing of the version information and change detection. For future feature ideas see the <a href="#potential-features">potential features</a> section.</p>
+<h3 id="what-is-a-node">What is a <em>Node</em></h3>
+<p>When we speak of a node in this document we mean the node and <strong>all</strong> of its children but not of the referenced nodes. Sometimes this is also called <em>subtree</em>.</p>
+<p>When we speak of the <em>dependencies</em> of a node we mean all nodes that are referenced by either node itself or it children. </p>
+<h2 id="meta-model">Meta Model</h2>
+<p><img alt="Meta Model" src="../nodeversion-meta.png" /></p>
+<p>The version information is stored on the node that is versioned as a <code>NodeAttribute</code> called <code>NodeVersion</code>. The <code>NodeVersion</code> contains a copy of the node at point in time when the version was created. In addition to the copy it also stores a <em>VersionNumber</em> which is a simple integer incremented with each version that is created. The <em>VersionNumber</em> has no other semantics than to provide ordering to the versions. To be able to detect changes of a node it also stores a hash of the node. The <code>NodeVersion</code> also contains a list of all the dependencies (reference targets) of the node and its version, these are called <code>LinkVersion</code>. </p>
+<h2 id="change-detection">Change Detection</h2>
+<p>On first glance change detection looks pretty straight forward. A node has changed when either the node itself has changed or one of the dependencies:</p>
+<p><img alt="Change Calculation" src="../CodeCogsEqn.gif" /></p>
+<p>But if we at MPS models they are not simple tree but graphs that allow reference cycles. In this cases we cannot simply traverse the complete graph over the edges since we would end up in a cycle. Imagine model like this:</p>
+<p><img src="mermaid-diagram-20180308195112.svg" alt="Drawing" style="width: 200px;"/></p>
+<p>In this case the change detection has to take into account that there is a cycle from <code>5 --&gt; 4 --&gt; 6 --&gt; 5</code>. The change detection algorithm detects this cycle and handles them appropriately. If none of the participants in a cycle have local changes then the whole cycle is assumed to be unchanged.</p>
+<p>Technically the detection if a node has changed since the last time it has been versioned is done via hashing. If the hash differs from the hash calculated for the last version then the node has changed. The current implementation uses SHA 1 hashes to verify if the node has changed. </p>
+<h2 id="potential-features">Potential Features</h2>
+<ul>
+<li><em>time travel</em>: Getting the model back into the exact same state as it was when a specific version on a node was created. Most likely as some kind of <em>transient</em> model that is not visible to the user. </li>
+<li>Referencing nodes in a specific version. While this to some degree already happens behind the scenes. It might be useful for the user to implement an API in specific version.</li>
+<li>Delete handling. At the moment when the user deletes a node that is still referenced from some other node in an older version (that is potentially not visible to the user) the model is in a broken state.</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>The general pattern that all functionally of the <code>nodeversioning</code> extension that all parts follow is that it will <strong>never</strong> mutate the model during its execution. It will collect changes or calculate a new set of <code>NodeVersions</code> but its up to the user of the extension to actually mutate the model. This behaviour is due to the fact that the domain requires human interaction to review the changes and allow to veto based on that review. </p>
+<p>First of all models that should get versioned need to use the <code>de.itemis.mps.nodeversioning</code> language. Most probably you want to expose this to the end user through a DevKit. This language does not add anything the user can see or interact with but adds the <code>NodeAttribute</code>s required for the versioning.</p>
+<p>In order to version a model or otherwise interact with the versions stored in the nodes use the <code>de.itemis.mps.nodeversioning.runtime</code> solution. The class you want to have a look at is <code>VersioningHelper</code> it provides the methods to version a node or check if something has changed. For more details see the JavaDoc on that class.</p></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+        
+        
+    </footer>
+
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '../..';
+    </script>
+    <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

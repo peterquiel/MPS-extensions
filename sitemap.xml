@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+     <loc>https://jetbrains.github.io/MPS-extensions/</loc>
+     <lastmod>2018-12-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://jetbrains.github.io/MPS-extensions/building/</loc>
+     <lastmod>2018-12-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://jetbrains.github.io/MPS-extensions/contributing/</loc>
+     <lastmod>2018-12-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://jetbrains.github.io/MPS-extensions/Migrating/</loc>
+     <lastmod>2018-12-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://jetbrains.github.io/MPS-extensions/extensions/diagrams/</loc>
+     <lastmod>2018-12-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://jetbrains.github.io/MPS-extensions/extensions/node-versioning/</loc>
+     <lastmod>2018-12-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+</urlset>
